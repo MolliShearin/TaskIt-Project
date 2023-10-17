@@ -1,0 +1,19 @@
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+ }
+
+ .newtask-button {
+  background-color: #48c15b;
+  width: 100%;
+  padding: 15px 40px;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  border-radius: 12px;
+}
