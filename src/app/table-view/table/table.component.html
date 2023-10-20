@@ -1,11 +1,14 @@
-<table>
+<table class="table">
+  <thead>
   <tr>
-    <td>Title</td>
-    <td>Due Date</td>
-    <td>Priority</td>
-    <td>Status</td>
-    <td>Actions</td>
+    <th>Title</th>
+    <th>Due Date</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Actions</th>
   </tr>
+</thead>
+<tbody>
   <tr *ngFor="let task of tasks">
     <td>{{task.title}}</td>
     <td>{{task.dueDate}}</td>
@@ -13,4 +16,5 @@
     <td>{{task.status}}</td>
     <td>Actions</td>
   </tr>
+</tbody>
 </table>
