@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TableComponent } from './task-list/table/table.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,10 +15,11 @@ import { TableComponent } from './task-list/table/table.component';
     SidebarComponent,
     TaskListComponent,
     TableComponent,
-   
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

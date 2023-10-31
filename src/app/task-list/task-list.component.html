@@ -34,40 +34,49 @@
       </div>
 
       <div class="modal-body">
-    <form>
+    <form (ngSubmit)="addTaskSubmit(formRef)" #formRef="ngForm">
         <div class="row">
           <div class="col-md-8">
             <div class="mb-3">
-              <input class="form-control" type="text" name="title" id="title" placeholder="Title">
+              <input class="form-control" type="text" name="title" id="title" placeholder="Title" #titleRef="ngModel" ngModel required>
+              <span class="help-block text-danger" *ngIf="!titleRef.valid && titleRef.touched"
+                >Please enter a title</span>
             </div>
             <div class="mb-3">
               <textarea class="form-control" type="text" name="description" id="description" placeholder="Description"
-                rows="7"></textarea>
+                rows="7" #descriptionRef="ngModel" ngModel required></textarea>
+                <span class="help-block text-danger" *ngIf="!descriptionRef.valid && descriptionRef.touched"
+                    >Please enter a description</span>
             </div>
           </div>
           <div class="col-md-4">
             <div class="mb-3">
-              <input id="dueDate" class="form-control" type="date" placeholder="Due Date" />
+              <input id="dueDate" class="form-control" type="date" name="dueDate" placeholder="Due Date" #dateRef="ngModel" ngModel required/>
+              <span class="help-block text-danger" *ngIf="!dateRef.valid && dateRef.touched"
+                >Please select a date</span>
             </div>
             <div class="mb-3">
-              <select class="form-select" name="priority" id="priority">
-                <option value="placeholder" selected disabled>Priority</option>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
+              <p class="mb-0">Priority</p>
+              <select class="form-select" name="priority" id="priority" #priorityRef="ngModel" ngModel required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
               </select>
-
+              <span class="help-block text-danger" *ngIf="!priorityRef.valid && priorityRef.touched"
+                >Please choose a priority</span>
             </div>
             <div class="mb-3">
-              <select class="form-select" name="status" id="status">
-                <option value="placeholder" selected disabled>Status</option>
-                <option value="toDo">To Do</option>
-                <option value="inProgress">In Progress</option>
-                <option value="done">Done</option>
+              <p class="mb-0">Status</p>
+              <select class="form-select" name="status" id="status" #statusRef="ngModel" ngModel required>
+                <option value="To Do">To Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
               </select>
+              <span class="help-block text-danger" *ngIf="!statusRef.valid && statusRef.touched"
+                >Please select a status</span>
             </div>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-success" (click)="addTask()">Create</button>
+            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="!formRef.valid">Create</button>
 
           </div>
 
