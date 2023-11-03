@@ -15,11 +15,53 @@
     <td>{{task.priority}}</td>
     <td>{{task.status}}</td>
     <td>
-      <i class="bi bi-eye mx-1"></i>
-      <i class="bi bi-pencil-square mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+      <i class="bi bi-eye mx-1" data-bs-toggle="modal" data-bs-target="#ViewTaskModal" (click)="selectTask(task.id)"></i>
+      <i class="bi bi-pencil-square mx-1"></i>
       <i class="bi bi-trash mx-1"></i>
     </td>
-
   </tr>
 </tbody>
 </table>
+
+
+<!--View Task Modal -->
+<div class="modal fade" id="ViewTaskModal" tabindex="-1" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a New Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <form>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="mb-3">
+              <input class="form-control" type="text" name="title" id="title" placeholder="{{selectedTask.title}}" disabled>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" type="text" name="description" id="description" placeholder="{{selectedTask.description}}"
+                rows="7" disabled></textarea>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <input id="dueDate" class="form-control" type="text" name="dueDate" placeholder="{{selectedTask.dueDate}}" disabled/>
+            </div>
+            <div class="mb-3">
+              <p class="mb-0">Priority</p>
+              <input class="form-control" name="priority" id="priority" placeholder="{{selectedTask.priority}}" disabled>
+
+            </div>
+            <div class="mb-3">
+              <p class="mb-0">Status</p>
+              <input class="form-control" name="status" id="status" placeholder="{{selectedTask.status}}" disabled>
+                
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

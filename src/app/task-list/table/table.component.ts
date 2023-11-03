@@ -10,6 +10,8 @@ import { TaskService } from 'src/app/shared/task/task.service';
 export class TableComponent  implements OnInit{
 
   tasks = [];
+  selectedTask;
+
 constructor(private taskService: TaskService){
 }
 
@@ -18,6 +20,12 @@ ngOnInit(): void {
     this.taskService.taskListChanged.subscribe((tasks: Task[]) => {
       this.tasks = tasks;
     })
+    this.selectedTask = this.taskService.getSelectedTaskId();
+    this.taskService.selectedTaskIdChanged.subscribe((task: Task) => {this.selectedTask = task});
+  }
+
+  selectTask(id: number) {
+    this.taskService.setSelectedTaskId(id);
   }
 }
 

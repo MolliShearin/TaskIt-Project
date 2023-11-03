@@ -12,12 +12,13 @@ export class TaskListComponent  {
 
   addTaskSubmit(formObj: NgForm) {
     console.log("Submitted!", formObj)
+    let id = Date.now();
     let title = formObj.value.title;
     let description = formObj.value.description;
     let dueDate = formObj.value.dueDate;
     let priority = formObj.value.priority;
     let status = formObj.value.status;
-    this.taskService.add_task(title, description, dueDate, priority, status);
+    this.taskService.add_task(id, title, description, dueDate, priority, status);
     formObj.reset();
   }
 }
