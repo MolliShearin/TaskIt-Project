@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Task } from 'src/app/shared/task/task.model';
 import { TaskService } from 'src/app/shared/task/task.service';
 
@@ -20,12 +21,21 @@ ngOnInit(): void {
     this.taskService.taskListChanged.subscribe((tasks: Task[]) => {
       this.tasks = tasks;
     })
-    this.selectedTask = this.taskService.getSelectedTaskId();
+    this.selectedTask = this.taskService.getSelectedTask();
     this.taskService.selectedTaskIdChanged.subscribe((task: Task) => {this.selectedTask = task});
   }
 
   selectTask(id: number) {
     this.taskService.setSelectedTaskId(id);
   }
+
+  cancelEditTask(formObj: NgForm) {
+
+  }
+
+  editTaskSubmit(formObj: NgForm) {
+
+  }
+
 }
 

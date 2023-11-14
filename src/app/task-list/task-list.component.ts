@@ -21,4 +21,8 @@ export class TaskListComponent  {
     this.taskService.add_task(id, title, description, dueDate, priority, status);
     formObj.reset();
   }
+
+  cancelCreateTask(formObj: NgForm) {
+    formObj.reset();
+  }
 }

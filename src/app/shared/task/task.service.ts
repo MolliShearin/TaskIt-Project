@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class TaskService {
   private tasks = [
-    new Task(0, "Title", "Description", "2023-11-02", "High", "In Progress")
+    new Task(1, "Title", "Description", "2023-11-02", "High", "In Progress")
   ]
 
 private selectedTaskId = 0;
@@ -21,10 +21,10 @@ selectedTaskIdChanged = new Subject<Task>();
 
 setSelectedTaskId(id: number) {
 this.selectedTaskId = id;
-this.selectedTaskIdChanged.next(this.getSelectedTaskId());
+this.selectedTaskIdChanged.next(this.getSelectedTask());
 }
 
-getSelectedTaskId() {
+getSelectedTask() {
   if(this.selectedTaskId == 0) {
     return new Task(0, "", "", "", "", "");
   }
